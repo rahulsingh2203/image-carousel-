@@ -2,155 +2,197 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Slider</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .main {
-      position: relative;
-      margin: 5rem;
-      height: 90vh;
-      width: 40vw;
-      border: 2px solid black;
-      border-radius: 2rem;
-    }
+        .main {
+            position: relative;
+            margin: 5rem;
+            height: 90vh;
+            width: 40vw;
+            border: 2px solid black;
+            border-radius: 2rem;
+        }
 
-    .slide {
-      display: none;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 2rem;
-    }
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2rem;
+        }
 
-    .slide img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 2rem;
-      object-fit: cover;
-    }
+        .slide img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2rem;
+            object-fit: cover;
+            opacity: 0.3;
+        }
 
-    button {
-      position: absolute;
-    }
+        button {
+            position: absolute;
+        }
 
-    #prev {
-      left: 0;
-      z-index: 2;
-      height: 100%;
-      width: 20%;
-      border: none;
-      border-top-left-radius: 2rem;
-      border-bottom-left-radius: 2rem;
-      background-color: transparent;
-      transition: 0.5s;
-    }
+        #prev {
+            left: 0;
+            z-index: 2;
+            height: 100%;
+            width: 20%;
+            border: none;
+            border-top-left-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+            background-color: transparent;
+            transition: 0.5s;
+        }
 
-    #prev:hover {
-      background-color: black;
-      opacity: 0.1;
+        #prev:hover {
+            background-color: black;
+            opacity: 0.1;
 
-    }
+        }
 
-    #next:hover {
-      background-color: black;
-      opacity: 0.1;
+        #next:hover {
+            background-color: black;
+            opacity: 0.1;
 
-    }
+        }
 
-    #next {
-      right: 0;
-      z-index: 2;
-      height: 100%;
-      width: 20%;
-      border: none;
-      border-top-right-radius: 2rem;
-      border-bottom-right-radius: 2rem;
-      background-color: transparent;
-      transition: 0.5s ease;
-    }
+        #next {
+            right: 0;
+            z-index: 2;
+            height: 100%;
+            width: 20%;
+            border: none;
+            border-top-right-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            background-color: transparent;
+            transition: 0.5s ease;
+        }
 
-    .active {
-      display: block;
-    }
+        .active {
+            display: block;
+        }
 
-    @media screen and (max-width:400px) {
-      body {
-        background-color: aliceblue;
-      }
+        .data {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-      .main {
-        height: 60%;
-        width: 90%;
-        margin: 0;
-      }
+        .upper-p {
+            font-size: 3vw;
+            letter-spacing: 2px;
+            padding: 1rem;
+            width: 100%;
+        }
 
-    }
-  </style>
+        .lower-p {
+            width: 100%;
+            padding: 1rem;
+            font-size: 2vw;
+            letter-spacing: 2px;
+        }
+
+        @media screen and (max-width:400px) {
+            body {
+                background-color: aliceblue;
+            }
+
+            .main {
+                height: 60%;
+                width: 90%;
+                margin: 0;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
-  <div class="main">
-    <button id="prev" onclick="prevSlide()"></button>
-    <div class="slide active">
-      <img src="1.png" alt="">
+    <div class="main">
+        <button id="prev" onclick="prevSlide()"></button>
+        <div class="slide active">
+            <img src="1.png" alt="">
+            <div class="data">
+                <p class="upper-p">What is My Story?</p>
+                <p class="lower-p">Everyone has one,<br> here is <b>mine</b> :)</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="3.jpg" alt="">
+            <div class="data">
+                <p class="upper-p">Just like my older brother</p>
+                <p class="lower-p">I studied at <b>St. MontFort Sr. Secondary School, Bhopal.</b>This is where it all
+                    started...</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="2.jpeg" alt="">
+            <div class="data">
+                <p class="upper-p">I am a Electronics and Communication Engineer from <b>Meerut Institute of Engineering
+                        and Technology,
+                        Meerut.</b></p>
+                <p class="lower-p">and it was in college, organizing events where I discovered <b>Web Development.</b>
+                    This discovery
+                    led to some <b></b>amazing opportunities.</b></p>
+            </div>
+        </div>
+        <button id="next" onclick="nextSlide()"></button>
     </div>
-    <div class="slide">
-      <img src="2.jpeg" alt="">
-    </div>
-    <div class="slide">
-      <img src="3.jpg" alt="">
-    </div>
-    <button id="next" onclick="nextSlide()"></button>
-  </div>
 
-  <script>
-    let slides = document.getElementsByClassName("slide");
-    let slidesNum = slides.length;
-    let i = 0;
-    function nextSlide() {
-      if (i < slidesNum - 1) {
-        slides[i].classList.remove("active");
-        slides[i + 1].classList.add("active");
-        i++;
-      }
-      else {
-        slides[i].classList.remove("active");
-        i = 0;
-        slides[i].classList.add("active");
-        slides[i + 1].classList.remove("active");
-      }
-    }
-    function prevSlide() {
-      if (i > 0) {
-        slides[i].classList.remove("active");
-        slides[i - 1].classList.add("active");
-        i--;
-      }
-      else {
-        slides[i].classList.remove("active");
-        slides[i + 2].classList.add("active");
-        i = slidesNum - 1;
-      }
-    }
-  </script>
+    <script>
+        let slides = document.getElementsByClassName("slide");
+        let slidesNum = slides.length;
+        let i = 0;
+        function nextSlide() {
+            if (i < slidesNum - 1) {
+                slides[i].classList.remove("active");
+                slides[i + 1].classList.add("active");
+                i++;
+            }
+            else {
+                slides[i].classList.remove("active");
+                i = 0;
+                slides[i].classList.add("active");
+                slides[i + 1].classList.remove("active");
+            }
+        }
+        function prevSlide() {
+            if (i > 0) {
+                slides[i].classList.remove("active");
+                slides[i - 1].classList.add("active");
+                i--;
+            }
+            else {
+                slides[i].classList.remove("active");
+                slides[i + 2].classList.add("active");
+                i = slidesNum - 1;
+            }
+        }
+    </script>
 </body>
 
 </html>
